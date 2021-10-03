@@ -1,0 +1,96 @@
+<div class="chute chute-center">
+  <div class="allcp-form theme-primary mw1000 center-block pb175">
+    <div class="panel">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="panel-heading">
+          <div class="panel-title">Add your Task</div>
+        </div>
+        <div class="panel-body">
+          <h6 class="mb20" id="spy1">Enter inputs</h6>
+          <div class="section row mhn10">
+            <div class="col-md-6 ph10 mb5">
+              <label for="title" class="field prepend-icon">
+                <input
+                  type="text"
+                  formControlName="title"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+                  placeholder="title..."
+                />
+                <span class="field-icon"> </span>
+              </label>
+              <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                <div *ngIf="f.title.errors.required">title is required</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 ph10 mb5">
+              <label for="description" class="field prepend-icon">
+                <input
+                  type="text"
+                  formControlName="description"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+                  placeholder="description..."
+                />
+                <span class="field-icon"> </span>
+              </label>
+              <div
+                *ngIf="submitted && f.description.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.description.errors.required">description is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="section row mhn10">
+            <div class="col-md-6 ph10 mb5">
+              <label for="priorityLevel" class="field prepend-icon">
+                <input
+                  type="number" min="0" max="5"
+                  formControlName="priorityLevel"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.priorityLevel.errors }"
+                  placeholder="priorityLevel..."
+                />
+                <span class="field-icon"> </span>
+              </label>
+              <div *ngIf="submitted && f.priorityLevel.errors" class="invalid-feedback">
+                <div *ngIf="f.priorityLevel.errors.required">priorityLevel is required</div>
+              </div>
+              <div *ngIf="submitted && f.priorityLevel.errors" class="invalid-feedback">
+                <div *ngIf="f.priorityLevel.errors.min && f.priorityLevel.errors.max">priorityLevel is between 0 and 5</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 ph10 mb5">
+              <label for="dateComplition" class="field prepend-icon">
+                <input
+                  type="text"
+                  formControlName="dateComplition"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.dateComplition.errors }"
+                  placeholder="dateComplition..."
+                />
+                <span class="field-icon"></span>
+              </label>
+              <div
+                *ngIf="submitted && f.dateComplition.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.dateComplition.errors.required">dateComplition is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-footer text-right">
+          <button type="submit" class="btn btn-bordered btn-primary mb5">
+            ADD
+          </button>
+          <button type="reset" class="btn btn-bordered mb5">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

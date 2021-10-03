@@ -1,0 +1,88 @@
+<body class="utility-page sb-l-c sb-r-c">
+  <div id="main" class="animated fadeIn">
+    <section id="content_wrapper">
+      <div id="canvas-wrapper">
+        <canvas id="demo-canvas"></canvas>
+      </div>
+
+      <section id="content" class="">
+        <div class="allcp-form theme-primary mw600" id="register">
+          <div class="bg-primary mw600 text-center mb20 br3 pt15 pb10">
+            <img src="assets/img/logo.png" alt="" />
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading pn">
+              <span class="panel-title"> Registration form </span>
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="panel-body pn">
+                <div class="section">
+                  <label for="email" class="field prepend-icon">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      formControlName="email"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                      class="gui-input"
+                      placeholder="Email address"
+                    />
+                    <span class="field-icon">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </label>
+                  <div
+                    *ngIf="submitted && f.email.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.email.errors.required">email is required</div>
+                  </div>
+                </div>
+
+                <div class="section">
+                  <label for="password" class="field prepend-icon">
+                    <input
+                      type="text"
+                      name="password"
+                      id="password"
+                      formControlName="password"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid': submitted && f.password.errors
+                      }"
+                      class="gui-input"
+                      placeholder="Create a password"
+                    />
+                    <span class="field-icon">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </label>
+                  <div
+                    *ngIf="submitted && f.password.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.password.errors.required">
+                      password is required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="section">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-bordered btn-primary">
+                      I Accept - Create Account
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-footer"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</body>
